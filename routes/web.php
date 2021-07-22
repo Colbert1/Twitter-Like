@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [Tweet::class, 'TL'])->name('welcome');
+Route::get('/posts/{id}', [Tweet::class, 'voirTweet'])->whereNumber('id');
+Route::get('/contact', [Tweet::class, 'contact'])->name('contact');
+/*
 Route::get('/', [Tweet::class, 'ecrireTweet']);
 Route::get('/', [Tweet::class, 'suppTweet']);
 Route::get('/', [Tweet::class, 'commenterTweet']);
 Route::get('/', [Tweet::class, 'likerTweet']);
 Route::get('/', [Tweet::class, 'partagerTweet']);
+*/

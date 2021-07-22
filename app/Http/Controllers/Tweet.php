@@ -14,6 +14,11 @@ namespace App\Http\Controllers;
 
 class Tweet extends Controller
 {
+    public function TL()
+    {
+        $posts = ['Twitter Like'];
+        return view('accueil', compact('posts'));
+    }
     public function ecrireTweet()
     {
         echo "Ecrit un tweet";
@@ -33,5 +38,18 @@ class Tweet extends Controller
     public function partagerTweet()
     {
         echo "Partage un tweet";
+    }
+    public function voirTweet($id)
+    {
+        $posts = [
+            1 => 'Tweet1',
+            2 => 'Tweet2'
+        ];
+        $post = $posts[$id];
+        return view('detailTweet', ['post' => $post]);
+    }
+    public function contact()
+    {
+        return view('contact');
     }
 }
